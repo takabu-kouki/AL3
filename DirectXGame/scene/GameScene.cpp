@@ -2,19 +2,11 @@
 #include "myMath.h"
 #include "TextureManager.h"
 #include <cassert>
-<<<<<<< Updated upstream
-=======
 #include <cstdint>
->>>>>>> Stashed changes
 
 GameScene::GameScene() {}
 
 GameScene::~GameScene() {
-<<<<<<< Updated upstream
-
-	delete player_;
-	delete model_;
-=======
 	for (Enemy* enemy : enemies_) {
 		delete enemy;
 	}
@@ -32,7 +24,6 @@ GameScene::~GameScene() {
 	delete modelSkydome_;
 	delete mapChipField_;
 	delete cameraController;
->>>>>>> Stashed changes
 }
 
 void GameScene::Initialize() {
@@ -44,13 +35,6 @@ void GameScene::Initialize() {
 	// ビュープロジェクションの初期化
 	viewProjection_.Initialize();
 
-<<<<<<< Updated upstream
-	// ファイル名を指定してテクスチャを読み込む
-	textureHandle_ = TextureManager::Load("uvChecker.png");
-
-	// 3Dモデルの生成
-	model_ = Model::Create();
-=======
 	// 3Dモデルの生成
 	modelPlayer_ = Model::CreateFromOBJ("player");
 	modelEnemy_ = Model::CreateFromOBJ("enemy");
@@ -60,20 +44,10 @@ void GameScene::Initialize() {
 	// マップチップフィールドの生成
 	mapChipField_ = new MapChipField;
 	mapChipField_->LoadMapChipCsv("Resources/blocks.csv");
->>>>>>> Stashed changes
 
 	// 自キャラの生成
 	player_ = new Player();
 	// 自キャラの初期化
-<<<<<<< Updated upstream
-	player_->Initialize(model_, textureHandle_, &viewProjection_);
-}
-
-void GameScene::Update() {
-
-	// 自キャラの更新
-	player_->Update();
-=======
 	// 座標をマップチップ番号で指定
 	Vector3 playerPosition = mapChipField_->GetMapChipPositionByIndex(5, 16);
 	player_->Initialize(modelPlayer_, &viewProjection_, playerPosition);
@@ -149,7 +123,6 @@ void GameScene::Update() {
 		}
 	}
 	CheckAllCollisions();
->>>>>>> Stashed changes
 }
 
 void GameScene::Draw() {
@@ -177,10 +150,6 @@ void GameScene::Draw() {
 	/// <summary>
 	/// ここに3Dオブジェクトの描画処理を追加できる
 	/// </summary>
-<<<<<<< Updated upstream
-	// 自キャラの描画
-	player_->Draw();
-=======
 	// 天球の描画
 	modelSkydome_->Draw(worldTransform_, viewProjection_);
 
@@ -198,7 +167,6 @@ void GameScene::Draw() {
 	player_->Draw();
 	// 敵の描画
 	newEnemy_->Draw();
->>>>>>> Stashed changes
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
@@ -217,8 +185,6 @@ void GameScene::Draw() {
 
 #pragma endregion
 }
-<<<<<<< Updated upstream
-=======
 
 void GameScene::GenerateBlocks() {
 
@@ -273,4 +239,3 @@ void GameScene::CheckAllCollisions() {
 	}
 	#pragma endregion
 }
->>>>>>> Stashed changes

@@ -12,11 +12,8 @@
 #include "Sprite.h"
 #include "ViewProjection.h"
 #include "WorldTransform.h"
-<<<<<<< Updated upstream
-=======
 #include <list>
 #include <vector>
->>>>>>> Stashed changes
 
 /// <summary>
 /// ゲームシーン
@@ -57,17 +54,6 @@ private: // メンバ変数
 	/// <summary>
 	/// ゲームシーン用
 	/// </summary>
-<<<<<<< Updated upstream
-	// ビュープロジェクション
-	ViewProjection viewProjection_;
-	// テクスチャハンドル
-	uint32_t textureHandle_ = 0u;
-	// モデルデータ
-	Model* model_ = nullptr;
-	// 自キャラ
-	Player* player_ = nullptr;
-};
-=======
 	// ワールドトランスフォーム
 	WorldTransform worldTransform_;
 	// ビュープロジェクション
@@ -101,4 +87,3 @@ private: // メンバ変数
 	/// </summary>
 	void CheckAllCollisions();
 };
->>>>>>> Stashed changes
